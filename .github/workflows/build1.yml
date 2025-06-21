@@ -18,8 +18,8 @@ jobs:
           kernel-branch: zircon-t-oss
           config: cas_defconfig
           arch: arm64
-          aosp-gcc: true
-          aosp-clang: true
+          aosp-gcc: false
+          aosp-clang: false
           ksu: true
           ksu-url: https://github.com/KernelSU-Next/KernelSU-Next
           android-version: 13
