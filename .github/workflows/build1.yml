@@ -1,0 +1,30 @@
+name: Build Kernel test
+on:
+  workflow_dispatch:
+
+jobs:
+  Build-Kernel:
+    strategy:
+      fail-fast: false
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Build Kernel
+        uses: dabao1955/kernel_build_action@main
+        with:
+          kernel-url: https://github.com/MiCode/Xiaomi_Kernel_OpenSource/
+          kernel-branch: zircon-t-oss
+          config: cas_defconfig
+          arch: arm64
+          aosp-gcc: true
+          aosp-clang: true
+          ksu: true
+          ksu-url: https://github.com/KernelSU-Next/KernelSU-Next
+          android-version: 13
+          disable-lto: true
+          anykernel3: true
+          anykernel3-url: https://github.com/WildPlusKernel/AnyKernel3.git
+          nethunter: true
+          nethunter-patch: true
