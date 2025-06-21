@@ -1,5 +1,4 @@
-# A simple action usage
-name: Build Kernel
+name: Build Kernel test
 on:
   workflow_dispatch:
 
@@ -15,16 +14,17 @@ jobs:
       - name: Build Kernel
         uses: dabao1955/kernel_build_action@main
         with:
-          kernel-url: https://github.com/AcmeUI-Devices/android_kernel_xiaomi_cas
-          kernel-dir: msm-4.19
-          kernel-branch: taffy
+          kernel-url: https://github.com/MiCode/Xiaomi_Kernel_OpenSource/tree/zircon-t-oss
+          kernel-branch: zircon-t-oss
           config: cas_defconfig
           arch: arm64
           aosp-gcc: true
           aosp-clang: true
           ksu: true
-          ksu-version: main
-          android-version: 12
-          aosp-clang-version: r383902
+          ksu-url: https://github.com/KernelSU-Next/KernelSU-Next
+          android-version: 13
           disable-lto: true
           anykernel3: true
+          anykernel3-url: https://github.com/WildPlusKernel/AnyKernel3.git
+          nethunter: true
+          nethunter-patch: true
